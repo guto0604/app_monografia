@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Leitura dos Dados
-df_orig = (pl.scan_parquet(r'data\colisoes.parquet')
+df_orig = (pl.scan_parquet('data\\colisoes.parquet')
     .filter(
     pl.col('id_colisao').is_not_null()
     )
