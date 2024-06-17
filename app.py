@@ -167,25 +167,25 @@ st.download_button(
 
 st.dataframe(df_out)
 
-
-fig, ax = plt.subplots()
-
-fig.patch.set_facecolor('#2E2E2E')
-ax.set_facecolor('#2E2E2E')
-
-sns.histplot(data = df_out, x = 'Velocidade_KM/H', binwidth= 5, color='snow')
-ax.set_title('Histograma da Velocidade das Colisões', color='white')
-ax.set_ylabel('Frequência Absoluta', color='white')
-ax.set_xlabel('Velocidade KM/H', color='white')
-ls_ticks = range(0,  int( df_out['Velocidade_KM/H'].max() ) + 10  ,10)
-ax.set_xticks( ticks = ls_ticks )
-ax.set_xticklabels(ls_ticks, fontsize=9, rotation = 45, color='white')
-ax.tick_params(axis='y', colors='white')
-
-ax.spines['top'].set_color('white')
-ax.spines['right'].set_color('white')
-ax.spines['bottom'].set_color('white')
-ax.spines['left'].set_color('white')
-
-
-st.pyplot(fig)
+if df_out.shape[0] > 0:
+    fig, ax = plt.subplots()
+    
+    fig.patch.set_facecolor('#2E2E2E')
+    ax.set_facecolor('#2E2E2E')
+    
+    sns.histplot(data = df_out, x = 'Velocidade_KM/H', binwidth= 5, color='snow')
+    ax.set_title('Histograma da Velocidade das Colisões', color='white')
+    ax.set_ylabel('Frequência Absoluta', color='white')
+    ax.set_xlabel('Velocidade KM/H', color='white')
+    ls_ticks = range(0,  int( df_out['Velocidade_KM/H'].max() ) + 10  ,10)
+    ax.set_xticks( ticks = ls_ticks )
+    ax.set_xticklabels(ls_ticks, fontsize=9, rotation = 45, color='white')
+    ax.tick_params(axis='y', colors='white')
+    
+    ax.spines['top'].set_color('white')
+    ax.spines['right'].set_color('white')
+    ax.spines['bottom'].set_color('white')
+    ax.spines['left'].set_color('white')
+    
+    
+    st.pyplot(fig)
